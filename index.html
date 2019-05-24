@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Shawn Scott">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="../logo.png">
+		<title>Playing Sounds</title>
+		<script type="text/javascript" src="lib/paper-full.js"></script>
+		<script type="text/javascript" src="lib/howler.js"></script>
+		
+		<style type="text/css">
+			html, body {
+				height: 100%;
+				margin: 0;
+			}
+
+			canvas {
+				width: 100%;
+				height: 100%;
+				background: black;
+			}
+
+			h1 {
+				position: absolute;
+				font-size: 100;
+				width: 200px;
+				color: gray;
+				left: 35%;
+				top: 30%;
+			}
+
+			.close { display: none; }
+		</style>
+		<script type="text/paperscript" canvas="myCanvas">
+
+		var keyData = {
+
+			escape: {
+			color: '#D261FF',
+			sound: new Howl({
+			 	src: ['sounds/space-ray.wav']
+			})
+			},
+			f1: {
+			color: '#3570FF',
+			sound: new Howl({
+			 	src: ['sounds/dubstep-snare.wav']
+			})
+			},
+			f2: {
+			color: '#FF9385',
+			sound: new Howl({
+			 	src: ['sounds/piano-b.wav']
+			})
+			},
+			f4: {
+			color: '#FF1BA3',
+			sound: new Howl({
+			 	src: ['sounds/sucking-air.wav']
+			})
+			},
+			f5: {
+			color: '#ADB0FF',
+			sound: new Howl({
+			 	src: ['sounds/kick-subby.wav']
+			})
+			},
+			f6: {
+			color: '#86FFED',
+			sound: new Howl({
+			 	src: ['sounds/gong.wav']
+			})
+			},
+			f7: {
+			color: '#4AFF16',
+			sound: new Howl({
+			 	src: ['sounds/trance-siren.wav']
+			})
+			},
+			f9: {
+			color: '#B23763',
+			sound: new Howl({
+			 	src: ['sounds/techno-sound.wav']
+			})
+			},
+			f10: {
+			color: '#FFC07E',
+			sound: new Howl({
+			 	src: ['sounds/synth-clap.wav']
+			})
+			},
+			f12: {
+			color: '#FFF68F',
+			sound: new Howl({
+			 	src: ['sounds/snare.wav']
+			})
+			},
+			1: {
+			color: '#C7FF20',
+			sound: new Howl({
+			 	src: ['sounds/snare-clap.wav']
+			})
+			},
+			2: {
+			color: '#A5FFA8',
+			sound: new Howl({
+			 	src: ['sounds/trance-quick-upsweep.wav']
+			})
+			},
+			3: {
+			color: '#29FFD3',
+			sound: new Howl({
+			 	src: ['sounds/scrape.wav']
+			})
+			},
+			4: {
+			color: '#91D6FF',
+			sound: new Howl({
+			 	src: ['sounds/razor-bass.wav']
+			})
+			},
+			5: {
+			color: '#4863FF',
+			sound: new Howl({
+			 	src: ['sounds/noisy-hat.wav']
+			})
+			},
+			6: {
+			color: '#D6A7FF',
+			sound: new Howl({
+			 	src: ['sounds/insane.wav']
+			})
+			},
+			7: {
+			color: '#E03CFF',
+			sound: new Howl({
+			 	src: ['sounds/med-kick.wav']
+			})
+			},
+			8: {
+			color: '#FF88CD',
+			sound: new Howl({
+			 	src: ['sounds/light-kick.wav']
+			})
+			},
+			9: {
+			color: '#FF2E34',
+			sound: new Howl({
+			 	src: ['sounds/lazer.mp3']
+			})
+			},
+			0: {
+			color: '#FF8364',
+			sound: new Howl({
+			 	src: ['sounds/kick-symbal.wav']
+			})
+			},
+			backspace: {
+			color: '#4BFF34',
+			sound: new Howl({
+			 	src: ['sounds/heavy-bell.wav']
+			})
+			},
+			tab: {
+			color: '#FF2587',
+			sound: new Howl({
+			 	src: ['sounds/growing-trance.wav']
+			})
+			},
+			enter: {
+			color: '#FFEB3D',
+			sound: new Howl({
+			 	src: ['sounds/future-ring.wav']
+			})
+			},
+			shift: {
+			color: '#B22B68',
+			sound: new Howl({
+			 	src: ['sounds/future-chime.wav']
+			})
+			},
+			control: {
+			color: '#00FFFE',
+			sound: new Howl({
+			 	src: ['sounds/electro-sound.wav']
+			})
+			},
+			meta: {
+			color: '#90FFFC',
+			sound: new Howl({
+			 	src: ['sounds/clap-echo.wav']
+			})
+			},
+			alt: {
+			color: '#2580FF',
+			sound: new Howl({
+			 	src: ['sounds/boomer.wav']
+			})
+			},
+			space: {
+			color: '#30C1FF',
+			sound: new Howl({
+			 	src: ['sounds/boom-kick.wav']
+			})
+			},
+			left: {
+			color: '#93C1FF',
+			sound: new Howl({
+			 	src: ['sounds/bee-synth.wav']
+			})
+			},
+			up: {
+			color: '#B25632',
+			sound: new Howl({
+			 	src: ['sounds/bar-hits-bucket.wav']
+			})
+			},
+			right: {
+			color: '#FF2346',
+			sound: new Howl({
+			 	src: ['sounds/aspecies.wav']
+			})
+			},
+			down: {
+			color: '#777CCC',
+			sound: new Howl({
+			 	src: ['sounds/coffee-tin.wav']
+			})
+			},
+			q: {
+			color: '#1abc9c',
+			sound: new Howl({
+			 	src: ['sounds/bubbles.mp3']
+			})
+			},
+			w: {
+			sound: new Howl({
+			 src: ['sounds/clay.mp3']
+			}),
+			color: '#2ecc71'
+			},
+			e: {
+			sound: new Howl({
+			 src: ['sounds/confetti.mp3']
+			}),
+			color: '#3498db'
+			},
+			r: {
+			sound: new Howl({
+			 src: ['sounds/corona.mp3']
+			}),
+			color: '#9b59b6'
+			},
+			t: {
+			sound: new Howl({
+			 src: ['sounds/dotted-spiral.mp3']
+			}),
+			color: '#34495e'
+			},
+			y: {
+			sound: new Howl({
+			 src: ['sounds/flash-1.mp3']
+			}),
+			color: '#16a085'
+			},
+			u: {
+			sound: new Howl({
+			 src: ['sounds/flash-2.mp3']
+			}),
+			color: '#27ae60'
+			},
+			i: {
+			sound: new Howl({
+			 src: ['sounds/flash-3.mp3']
+			}),
+			color: '#2980b9'
+			},
+			o: {
+			sound: new Howl({
+			src: ['sounds/glimmer.mp3']
+			}),
+			color: '#8e44ad'
+			},
+			p: {
+			sound: new Howl({
+			 src: ['sounds/moon.mp3']
+			}),
+			color: '#2c3e50'
+			},
+			a: {
+			sound: new Howl({
+			 src: ['sounds/pinwheel.mp3']
+			}),
+			color: '#f1c40f'
+			},
+			s: {
+			sound: new Howl({
+			 src: ['sounds/piston-1.mp3']
+			}),
+			color: '#e67e22'
+			},
+			d: {
+			sound: new Howl({
+			 src: ['sounds/piston-2.mp3']
+			}),
+			color: '#e74c3c'
+			},
+			f: {
+			sound: new Howl({
+			 src: ['sounds/prism-1.mp3']
+			}),
+			color: '#95a5a6'
+			},
+			g: {
+			sound: new Howl({
+			 src: ['sounds/prism-2.mp3']
+			}),
+			color: '#f39c12'
+			},
+			h: {
+			sound: new Howl({
+			 src: ['sounds/prism-3.mp3']
+			}),
+			color: '#d35400'
+			},
+			j: {
+			sound: new Howl({
+			 src: ['sounds/splits.mp3']
+			}),
+			color: '#1abc9c'
+			},
+			k: {
+			sound: new Howl({
+			 src: ['sounds/squiggle.mp3']
+			}),
+			color: '#2ecc71'
+			},
+			l: {
+			sound: new Howl({
+			 src: ['sounds/strike.mp3']
+			}),
+			color: '#3498db'
+			},
+			z: {
+			sound: new Howl({
+			 src: ['sounds/suspension.mp3']
+			}),
+			color: '#9b59b6'
+			},
+			x: {
+			sound: new Howl({
+			 src: ['sounds/timer.mp3']
+			}),
+			color: '#34495e'
+			},
+			c: {
+			sound: new Howl({
+			 src: ['sounds/ufo.mp3']
+			}),
+			color: '#16a085'
+			},
+			v: {
+			sound: new Howl({
+			 src: ['sounds/veil.mp3']
+			}),
+			color: '#27ae60'
+			},
+			b: {
+			sound: new Howl({
+			 src: ['sounds/wipe.mp3']
+			}),
+			color: '#2980b9'
+			},
+			n: {
+			sound: new Howl({
+			src: ['sounds/zig-zag.mp3']
+			}),
+			color: '#8e44ad'
+			},
+			m: {
+			sound: new Howl({
+			 src: ['sounds/moon.mp3']
+			}),
+			color: '#2c3e50'
+			}
+			}
+
+		var circles = [];
+
+		function onKeyDown(event) {
+
+			if(keyData[event.key]){
+				if(document.querySelector("h1").className !== "close"){
+					document.querySelector("h1").className = "close";
+				}
+				var x = Math.ceil(Math.random() * innerWidth);
+				var y = Math.ceil(Math.random() * innerHeight);
+				var rad = Math.ceil(Math.random() * 500);
+				rando = Math.ceil(Math.random() * 9);
+				var newCircle = new Path.Circle(new Point(x, y), rad);
+				newCircle.fillColor = keyData[event.key].color;
+				keyData[event.key].sound.play();
+
+				circles.push(newCircle);
+			}
+		}
+
+		function onFrame(event){
+  			for(var i = 0; i < circles.length; i++){
+    				circles[i].scale(0.9);
+    				circles[i].fillColor.hue += 1;
+    				if(circles[i].area < 1){
+      					circles[i].remove();
+      					circles.splice(i, 1);
+      					i--;
+    				}
+  			}
+		}
+
+		</script>
+
+	</head>
+
+	<body>
+		<h1>Press a key...</h1>
+		<canvas id="myCanvas" resize></canvas>
+	</body>
+</html>
+<!--       Coded by: Shawn Scott <- "GNaux: The Badass Bison"
+
+         /||||||||||||||||||\              /||||||||||||||||||\
+       /||||||||||||||||||||||\          /||||||||||||||||||||||\
+     /||||||||||||||||||||||||||\      /||||||||||||||||||||||||||\
+    ||||||||/            \||||||||    ||||||||/            \||||||||
+    ||||||||              ||||||||    ||||||||              ||||||||
+    |||||||\              ||||||/     |||||||\              ||||||/
+     \||||||\            /|||||/       \||||||\            /|||||/
+      \\\\\\\\                          \\\\\\\\
+       \\\\\\\\\                         \\\\\\\\\
+          \\\\\\\\\                         \\\\\\\\\
+             \\\\\\\\\                          \\\\\\\\\
+                 \\\\\\\\\                         \\\\\\\\\
+                   \\\\\\\\\                         \\\\\\\\\
+                      \\\\\\\\\                         \\\\\\\\\
+                         \\\\\\\\                         \\\\\\\\
+       /|||||/            \||||||\      /|||||/            \||||||\
+      /||||||              \|||||||    /||||||              \|||||||
+     ||||||||              ||||||||   ||||||||              ||||||||
+     ||||||||\            /||||||||   ||||||||\            /||||||||
+      \||||||||||||||||||||||||||/     \||||||||||||||||||||||||||/
+        \||||||||||||||||||||||/         \||||||||||||||||||||||/
+          \||||||||||||||||||/             \||||||||||||||||||/
+-->
